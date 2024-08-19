@@ -20,8 +20,9 @@ function calculateWeight(earthWeight) {
     }
     // return the planetWeights object from the function
     // console.log(planetWeights);
-    for(let planet in planetWeights) {
+    for (let planet in planetWeights) {
         console.log('Your weight on ${planet} is ${planetWeights[planet]}kg');
+    }
 }
 function getUserWeight() {
     console.log("Enter your weight in kg");
