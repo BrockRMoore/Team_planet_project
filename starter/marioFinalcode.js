@@ -1,13 +1,9 @@
-//Mario
-
 const prompt = require('prompt-sync')();
 
 const gravityFactors = require('./utils/earthGravityFactors.js');
 
-const alienFactors = require('./utils/alienGravityFactors.js');
 
-
-function showUserFactors(type, value, system, typeSolorsystem) {
+function showUserFactors(type, value, system) {
     let result = {};
 
     let mesurement;
@@ -99,38 +95,8 @@ function getUserInput() {
 
     console.log("Enter your distance");
     const value = prompt(">> ").trim.toLowerCase;
-    while (true) {
-        console.log("Enter your measurment type ('jump' or 'weight' or 'pushups')");
-        const value = prompt(">> ");
-        let matchThree = false;
-            
-        if (!isNaN(value.trim())) {
-                matchThree = true;
-                break;
 
-            }
-            else {
-                console.log("That is not valid, enter another number")
-            }
-    }
-
-    const planetNum = [1, 2];
-    let value;
-    while (true) {
-        console.log("Enter 1 if on earth or 2 if on alien planet");
-        const typeSolorsytem = prompt(">> ");
-        let matchThree = false;
-
-        if (!isNaN(typeSolorsystem.trim())) {
-            matchFour = true;
-            break;
-
-        }
-        else {
-            console.log("That is not valid, enter another number")
-        }
-    }
-    showUserFactors(type, value, system, typeSolorsystem);
+    showUserFactors(type, value, system);
 
 
 }
