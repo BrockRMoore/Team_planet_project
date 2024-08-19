@@ -21,8 +21,7 @@ function showUserFactors(type, value, system) {
         case "run":
             measurement = "KM";
             break;
-        case "weight":
-            measurement = "kg";
+        case "pushups":
             break;
 
         default:
@@ -38,13 +37,13 @@ function showUserFactors(type, value, system) {
 
 function getUserInput() {
     
-    const validWords = ["Jump", "run", "weight"];
+    const validWords = ["Jump", "pushups", "weight"];
     while (true) {
-        console.log("Enter your measurment type ('jump' or 'run' or 'weight)");
+        console.log("Enter your measurment type ('jump' or 'weight' or 'pushups')");
         const type = prompt(">> ");
         let match = false;
 
-        for (let i = 0; i < validWords.length - 1; i++) {
+        for (let i = 0; i < validWords.length ; i++) {
             if (type.trim().toLowerCase() === validWords[i]) {
                 match = true;
                 break;
@@ -61,19 +60,28 @@ function getUserInput() {
 
     while (true) {
         console.log("Enter what measuring system to use.");
-        const type = prompt(">> ");
-        let match = false;
+        let matchTwo = false;
 
-        for (let i = 0; i < systems.length - 1; i++) {
-            if (system.trim().toLowerCase() === systems[i]) {
+        for (let i = 0; i < systems.length ; i++) {
+            if (system.trim().toLowerCase() === systems[i] && type != "pushups") {
                 if (system === "metric") {
-                    
+                    if (type === "jump") { 
+                        measurment = "cm";
+                    }
+                    if (type === "weight") {
+                        measurment = "kg"
+                    }
                 }
 
                 if (system === "imperial") {
-                
+                    if (type === "jump") {
+                        measurement = "in";
+                    }
+                    if (type === "weight") {
+                        measurement = "lbs";
+                    }
                 }
-                match = true;
+                matchTwo = true;
                 break;
 
             }
